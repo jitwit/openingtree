@@ -12,14 +12,28 @@ export const rowContentColor = (darkMode) => {
 }
 
 export const toggleBoardTheme = () => {
-
+//    let root = getComputedStyle(document.documentElement)
+//    console.log(root.getPropertyValue("--board-url"))
+//    console.log(root.getPropertyValue("--board-theme"))
+    let root = document.documentElement.style
+    let rootc = window.getComputedStyle(document.documentElement)
+    // how to get right url?????????????????????
+    let url = './images/board/blue.svg'
+    console.log(rootc.getPropertyValue('--board-url'))
+    root.setProperty('--board-url',`url(${url})`)
+    console.log(rootc.getPropertyValue('--board-url'))
 }
 
 export const togglePieceSet = () => {
     
 }
 
-setPieceSet = (newPieceSet) => {
+// export const setBoardTheme = (boardTheme) => {
+//     let root = document.documentElement.style
+//     let curr = root.getProperty
+// }
+
+export const setPieceSet = (newPieceSet) => {
     let root = document.documentElement.style
     let currentPieceSet = root.getProperty("--piece-set");
     if (currentPieceSet === newPieceSet) {

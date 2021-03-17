@@ -2,7 +2,7 @@
  * Board
  */
  :root {
-    --board-theme:"default";
+    --board-theme:"blue";
     --board-url: url('./images/board/brown.svg');
 
     --piece-set:"default";

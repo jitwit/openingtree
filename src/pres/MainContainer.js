@@ -102,7 +102,9 @@ export default class MainContainer extends React.Component {
     return movesSettings;
   }
 
-  getDarkModeSettingFromCookie () {
+  // formerlly getDarkModeBlah
+  getThemeSettingFromCookie () {
+    console.log(Constants.SETTING_NAME_PIECE_SET)
     const darkModeCookie = cookieManager.getDarkModeCookie();
     if(darkModeCookie === undefined){
       return true// default value

@@ -5,6 +5,7 @@ import { faDesktop, faFastBackward, faMoon, faLightbulb, faRetweet, faTrashAlt }
 
 import { trackEvent } from '../app/Analytics';
 import * as Constants from '../app/Constants';
+import { toggleBoardTheme } from './Theme';
 
 export default class SettingsView extends React.Component {
     constructor(props){
@@ -21,6 +22,9 @@ export default class SettingsView extends React.Component {
             case 70: // F key
                 this.toggle(Constants.SETTING_NAME_ORIENTATION)();
                 break;
+	case 66:
+	    toggleBoardTheme();
+	    break;
             default:
                 break;
         }

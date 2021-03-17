@@ -4,6 +4,7 @@ import ResultsTable from './ResultsTable';
 import { Spinner } from 'reactstrap';
 import Cached from '@material-ui/icons/Cached'
 import * as Constants from '../../app/Constants'
+import { offCard } from './MovesCommon'
 
 export default class BookMove extends React.Component {
 
@@ -26,12 +27,13 @@ export default class BookMove extends React.Component {
             return <div className="center"><br/><Spinner/></div>
         }
         if(this.props.bookMoves.fetch === "off") {
-            return this.offCard('Opening book is disabled',
+            return offCard('Opening book is disabled',
                 'Click the button below to enable it',
                 this.enableBook.bind(this),'Enable opening book', <Cached />)
         }
+
         if(this.props.bookMoves.fetch === "failed") {
-            return this.offCard('Failed to fetch book moves',
+            return offCard('Failed to fetch book moves',
                 'Please check your internet connection. Lichess could also be down.',
                 this.props.forceFetchBookMoves,'Try again', <Cached />)
         }

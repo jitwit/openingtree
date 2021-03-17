@@ -1,7 +1,5 @@
 import React from 'react'
 import {Progress, Popover } from "reactstrap"
-import {Card, CardBody, CardText, CardTitle} from 'reactstrap'
-import { Button as MaterialUIButton } from '@material-ui/core'
 import { Table, TableRow, TableHead, TableBody, TableCell, TableFooter } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt, faInfoCircle, faExclamationTriangle, faWrench } from '@fortawesome/free-solid-svg-icons'
@@ -11,7 +9,7 @@ import "react-step-progress-bar/styles.css";
 import {trackEvent} from '../../app/Analytics'
 import * as Constants from '../../app/Constants'
 import { ProgressBar,Step } from "react-step-progress-bar";
-import {playerDetails} from './MovesCommon'
+import {playerDetails, offCard} from './MovesCommon'
 import {simplifyCount} from '../../app/util'
 import MovesSettings from './MovesSettings'
 
@@ -203,8 +201,8 @@ export default class MovesTable extends React.Component {
         </TableRow></TableFooter>
 	       </Table>
 	{hasMoves? null :
-	 this.offCard('No moves found',
-		      'The opening book does not have any moves in this position')
+	 offCard('No moves found',
+		 'The opening book does not have any moves in this position')
 	}
 	</div>
     }
@@ -292,27 +290,6 @@ export default class MovesTable extends React.Component {
                         {sampleResultWhite} {sampleResult} {sampleResultBlack} {<FontAwesomeIcon className="pointerExternalLink" onClick ={this.props.launchGame(move.details.lastPlayedGame)} icon={faExternalLinkAlt}/>}
                 </TableCell>
             </TableRow>
-    }
-
-    offCard(title, message, action, actionText, actionIcon) {
-        return <Card className="errorCard"><CardBody className="singlePadding">
-        <CardTitle className="smallBottomMargin"><FontAwesomeIcon icon={faInfoCircle} className="lowOpacity"/> {title}</CardTitle>
-        <CardText className="smallText">
-            {message}
-            <br/>
-            <br/>
-            {actionText?<MaterialUIButton
-            onClick={action}
-            variant="contained"
-            color="default"
-            className="mainButton" disableElevation
-            startIcon={actionIcon}
-            >
-                {actionText}
-            </MaterialUIButton>:null}
-        </CardText>
-        </CardBody>
-        </Card>
     }
 
 }

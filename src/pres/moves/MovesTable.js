@@ -1,5 +1,7 @@
 import React from 'react'
 import {Progress, Popover } from "reactstrap"
+import {Card, CardBody, CardText, CardTitle} from 'reactstrap'
+import { Button as MaterialUIButton } from '@material-ui/core'
 import { Table, TableRow, TableHead, TableBody, TableCell, TableFooter } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt, faInfoCircle, faExclamationTriangle, faWrench } from '@fortawesome/free-solid-svg-icons'
@@ -165,8 +167,7 @@ export default class MovesTable extends React.Component {
 
     render() {
         let hasMoves = (this.props.movesToShow && this.props.movesToShow.length>0)
-        return <Table>
-            {hasMoves?
+        return <div><Table>
         <TableHead>
         <TableRow>
             <TableCell size="small" className="smallCol"><b>Move</b></TableCell>
@@ -182,7 +183,6 @@ export default class MovesTable extends React.Component {
                     variant={this.props.variant}/>
             </TableCell>
         </TableRow></TableHead>
-        :null}
         {hasMoves?
         <TableBody>
         {
@@ -195,13 +195,18 @@ export default class MovesTable extends React.Component {
             }
         )}
     </TableBody>
-    :null}
+	 :null}
         <TableFooter><TableRow>
             <TableCell colSpan="3">
                 {this.props.tableFooter}
             </TableCell>
         </TableRow></TableFooter>
-    </Table>
+	       </Table>
+	{hasMoves? null :
+	 this.offCard('No moves found',
+		      'The opening book does not have any moves in this position')
+	}
+	</div>
     }
     highlightArrowFn(move) {
         if(this.isTouchDevice()) {
@@ -287,6 +292,27 @@ export default class MovesTable extends React.Component {
                         {sampleResultWhite} {sampleResult} {sampleResultBlack} {<FontAwesomeIcon className="pointerExternalLink" onClick ={this.props.launchGame(move.details.lastPlayedGame)} icon={faExternalLinkAlt}/>}
                 </TableCell>
             </TableRow>
+    }
+
+    offCard(title, message, action, actionText, actionIcon) {
+        return <Card className="errorCard"><CardBody className="singlePadding">
+        <CardTitle className="smallBottomMargin"><FontAwesomeIcon icon={faInfoCircle} className="lowOpacity"/> {title}</CardTitle>
+        <CardText className="smallText">
+            {message}
+            <br/>
+            <br/>
+            {actionText?<MaterialUIButton
+            onClick={action}
+            variant="contained"
+            color="default"
+            className="mainButton" disableElevation
+            startIcon={actionIcon}
+            >
+                {actionText}
+            </MaterialUIButton>:null}
+        </CardText>
+        </CardBody>
+        </Card>
     }
 
 }

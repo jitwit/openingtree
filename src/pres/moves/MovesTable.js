@@ -163,8 +163,26 @@ export default class MovesTable extends React.Component {
         return "none"
     }
 
+    renderNoMoves () {
+	return offCard('No moves found',
+		       'The opening book does not have any moves in this position',
+		       this.toggleMovesSettings.bind(this),
+		       'Modify Settings?'
+		      )
+	// <div><FontAwesomeIcon 
+        //         className={`floatRight pointer`} 
+        //         icon={faWrench} onClick={this.toggleMovesSettings.bind(this)}/>
+        //         <MovesSettings isOpen={this.state.moveSettingsOpen} 
+        //             toggle={this.toggleMovesSettings.bind(this)}
+        //             settingsChange={this.props.settingsChange}
+        //             updateSettings = {this.props.updateSettings}
+        //             settings={this.props.settings}
+        //             variant={this.props.variant}/></div>
+    }
+
     render() {
         let hasMoves = (this.props.movesToShow && this.props.movesToShow.length>0)
+	if (!hasMoves) return this.renderNoMoves();
         return <div><Table>
         <TableHead>
         <TableRow>

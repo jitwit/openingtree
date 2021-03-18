@@ -167,7 +167,14 @@ export default class MovesTable extends React.Component {
 	return offCard('No moves found',
 		       'The opening book does not have any moves in this position',
 		       this.toggleMovesSettings.bind(this),
-		       'Modify Settings?'
+		       <div><b>Modify Book Settings</b>
+		       <MovesSettings isOpen={this.state.moveSettingsOpen} 
+				      toggle={this.toggleMovesSettings.bind(this)}
+				      settingsChange={this.props.settingsChange}
+				      updateSettings = {this.props.updateSettings}
+				      settings={this.props.settings}
+				      variant={this.props.variant}/></div>
+
 		      )
 	// <div><FontAwesomeIcon 
         //         className={`floatRight pointer`} 

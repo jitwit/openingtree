@@ -10,7 +10,6 @@ export const logoName = (darkMode) => {
 export const rowContentColor = (darkMode) => {
     return darkMode ? 'white' : 'grey'
 }
-
 export const toggleBoardTheme = () => {
 //    let root = getComputedStyle(document.documentElement)
 //    console.log(root.getPropertyValue("--board-url"))
@@ -18,9 +17,8 @@ export const toggleBoardTheme = () => {
     let root = document.documentElement.style
     let rootc = window.getComputedStyle(document.documentElement)
     // how to get right url?????????????????????
-    let url = './images/board/blue.svg'
     console.log(rootc.getPropertyValue('--board-url'))
-    root.setProperty('--board-url',`url(${url})`)
+    root.setProperty('--board-url',`var(--board-url-two`)
     console.log(rootc.getPropertyValue('--board-url'))
 }
 

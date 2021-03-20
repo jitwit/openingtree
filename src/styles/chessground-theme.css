@@ -4,21 +4,22 @@
  :root {
     --board-theme:"default";
     --board-url: url('./images/board/blue.svg');
+    --board-url-two: url('./images/board/brown.svg');
 
     --piece-set:"default";
-    --piece-wP: url('./images/pieces/merida/wP.svg');
-    --piece-wB: url('./images/pieces/merida/wB.svg');
-    --piece-wN: url('./images/pieces/merida/wN.svg');
-    --piece-wR: url('./images/pieces/merida/wR.svg');
-    --piece-wQ: url('./images/pieces/merida/wQ.svg');
-    --piece-wK: url('./images/pieces/merida/wK.svg');
+    --piece-wP: url('./images/pieces/fresca/wP.svg');
+    --piece-wB: url('./images/pieces/fresca/wB.svg');
+    --piece-wN: url('./images/pieces/fresca/wN.svg');
+    --piece-wR: url('./images/pieces/fresca/wR.svg');
+    --piece-wQ: url('./images/pieces/fresca/wQ.svg');
+    --piece-wK: url('./images/pieces/fresca/wK.svg');
 
-    --piece-bP: url('./images/pieces/merida/bP.svg');
-    --piece-bB: url('./images/pieces/merida/bB.svg');
-    --piece-bN: url('./images/pieces/merida/bN.svg');
-    --piece-bR: url('./images/pieces/merida/bR.svg');
-    --piece-bQ: url('./images/pieces/merida/bQ.svg');
-    --piece-bK: url('./images/pieces/merida/bK.svg');
+    --piece-bP: url('./images/pieces/fresca/bP.svg');
+    --piece-bB: url('./images/pieces/fresca/bB.svg');
+    --piece-bN: url('./images/pieces/fresca/bN.svg');
+    --piece-bR: url('./images/pieces/fresca/bR.svg');
+    --piece-bQ: url('./images/pieces/fresca/bQ.svg');
+    --piece-bK: url('./images/pieces/fresca/bK.svg');
 }
 
 .cg-wrap {

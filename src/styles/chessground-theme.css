@@ -2,8 +2,8 @@
  * Board
  */
  :root {
-    --board-theme:"blue";
-    --board-url: url('./images/board/brown.svg');
+    --board-theme:"default";
+    --board-url: url('./images/board/blue.svg');
 
     --piece-set:"default";
     --piece-wP: url('./images/pieces/merida/wP.svg');

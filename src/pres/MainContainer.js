@@ -1,6 +1,8 @@
 import React from 'react'
 import Chessground from 'react-chessground'
 import 'react-chessground/dist/styles/chessground.css'
+import '../styles/chessground.css'
+import '../styles/chessground-theme.css'
 import {
   Button,
   Col,
